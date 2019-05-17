@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>登录</title>
+</head>
+
+<body>
+    <input type="text" id="user_id">
+    <input type="password" id="input_pwd">
+	<select name="select_identity_name" id="select_identity_id">
+	  <option value="teacher">教师</option>
+	  <option value="student">学生</option>
+	</select>
+    <button id="login">登录</button>
+	<!-- 如果登录失败，那么提示用户。-->
+    <p id="login_fail"></p>
+</body>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+  $(function(){
+    $('#login').click(function(){
+      var user_id=$('#user_id').val();
+      var input_pwd=$('#input_pwd').val();
+	  var identity = $("#select_identity_id").val();
+      $.ajax({
+        type: "post",
+        url: "login.php",
+        data: {user_id:user_id,input_pwd:input_pwd,identity:identity},//提交到demo.php的数据
+        success: function(msg){
+			console.log(msg);
+			var jsonObj=JSON.parse(msg);
+			if(jsonObj.state=='successful'){
+				if(identity=='teacher'){
+					window.location.href='tea_page.html';
+				}
+				else if(identity=='student'){
+					window.location.href='stu_page.html';
+				}
+				
+			}
+			else{
+				$('#login_fail').html("登录失败，请检查用户名、密码或选择的身份是否正确。");
+			}
+			console.log(jsonObj);
+        },
+        error:function(msg){
+			console.log("ajax请求失败。");
+			$('#login_fail').html("登录失败，请检查用户名、密码或选择的身份是否正确。");
+        }
+      });
+    })
+  })
+</script>
+</html>
