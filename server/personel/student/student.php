@@ -8,8 +8,10 @@
 		public function getStuId(){
 			return $this->stuId;
 		}
+		
+		
+		public initSinglePersonelAccount(){
+			
+		}
 	}
-	$stu1=new Student();
-	$stu1->setStuId("1111111");
-	echo $stu1->getStuId();
 	
