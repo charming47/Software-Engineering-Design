@@ -2,29 +2,29 @@
 
 
 ## 梁鹏飞
-1. 教师 teacher.php
-2. 教务员 academic_officer.php
-3. 评阅人 appraiser.php
-4. 教学主任 teach_director.php
-5. 毕设题目 topic.php
-6. 任务书 task_book.php
-7. 选题报告 topic_selection_report.php
-8. 中期考核表 midterm_test_form.php
-9. 论文 paper.php
-10. 修改意见 amendment.php
-11. 评阅人意见表 appraiser_opinion_sheet.php
+1. 教师 Teacher.php
+2. 教务员 AcademicOfficer.php
+3. 评阅人 Appraiser.php
+4. 教学主任 TeachDirector.php
+5. 毕设题目 Topic.php
+6. 任务书 TaskBook.php
+7. 选题报告 TopicSelectionReport.php
+8. 中期考核表 MidtermTestForm.php
+9. 论文 Paper.php
+10. 修改意见 Amendment.php
+11. 评阅人意见表 AppraiserOpinionSheet.php
 
 
 ## 周风帆
-1. 人员 personel.php
-2. 学生 student.php
-3. 待审核事项 item_need_verify.php
-4. 有指导意见的文档 opinion_doc.php
-5. 文档公共协议 doc_pub_license.php
-6. 文档管理器 doc_manage.php
-7. 教师接口 teacher_int.php
-8. 评阅人接口 appraiser_int.php
-9. 教学主任接口 teach_director_int.php
-10. 教务员接口 academic_officer_int.php
-11. 导师意见表 instructor_opinion_sheet.php
-12. 选题申请 apply_topic.php
+1. 人员 Personel.php
+2. 学生 Student.php
+3. 待审核事项 ItemNeedVerify.php
+4. 有指导意见的文档 OpinionDoc.php
+5. 文档公共协议 DocPubLicense.php
+6. 文档管理器 DocManage.php
+7. 教师接口 TeacherInt.php
+8. 评阅人接口 AppraiserInt.php
+9. 教学主任接口 TeachDirectorInt.php
+10. 教务员接口 AcademicOfficerInt.php
+11. 导师意见表 InstructorOpinionSheet.php
+12. 选题申请 ApplyTopic.php
