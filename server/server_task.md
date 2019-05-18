@@ -23,8 +23,8 @@
 5. 文档公共协议 doc_pub_license.php
 6. 文档管理器 doc_manage.php
 7. 教师接口 teacher_int.php
-8. 评阅人接口
-9. 教学主任接口
-10. 教务员接口 
+8. 评阅人接口 appraiser_int.php
+9. 教学主任接口 teach_director_int.php
+10. 教务员接口 academic_officer_int.php
 11. 导师意见表 instructor_opinion_sheet.php
 12. 选题申请 apply_topic.php
