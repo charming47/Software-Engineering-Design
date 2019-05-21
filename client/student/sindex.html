@@ -1,93 +1,142 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="界面" />
+    <meta name="keywords" content="index" />
+    <title>学生界面</title>
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- jQuery-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <style type="text/css">
+      @import "./css/admin.css";
+    </style>
 
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-  <meta name="description" content="目录页">
-  <meta name="keywords" content="login">
-  <title>登录页</title>
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- jQuery-->
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js">
-  </script>
-  <style type="text/css">
-    @import"./css/admin.css";
-  </style>
-
-
-  <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
-  <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
-  <!--[if lt IE 9]>
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
       <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
     <![endif]-->
-</head>
+  </head>
 
-<body>
-  <nav class="navbar navbar-inverse navbar-fixed top">
-    <div class="container">
-      <div id="navbar" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed top">
+      <div class="container">
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
             <span><a href="#">通知</a></span>
             <span><a href="#">退出</a></span>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <div class="wrapper">
-    <div id="top">
-      北京科技大学本科生毕业设计(论文)管理系统
-    </div>
-    <div class="tpl-left-nav tpl-left-nav-hover" style="display: block;">
-        <div class="tpl-left-nav-title">学生</div>
-        <div class="tpl-left-nav-list">
-          <ul class="tpl-left-nav-menu">
-
-            <li class="tpl-left-nav-item"><a href="sIndex.html" class="nav-link link_a active" target="iframe_a"> <span>首页管理</span>
-            </a></li>
-
-            <li class="tpl-left-nav-item"><a href="javascript:;" class="nav-link link_a" target="iframe_a">  <span>选题管理</span>
-            </a>
-              <ul class="tpl-left-nav-sub-menu" style="display: none;">
-                <li><a href="sChoose.html" class="link_a" target="iframe_a"> <span>可选题目</span>
-                </a><a href="sApplication.html" class="link_a" target="iframe_a"> <span>我的申请</span>
-                </a></li>
-              </ul></li>
-    
-            <li class="tpl-left-nav-item"><a href="sOpeningReport" class="nav-link tpl-left-nav-link-list left-nav-link"> <span>选题报告管理</span>
-            </a></li>
-    
-            <li class="tpl-left-nav-item"><a href="s" class="nav-link tpl-left-nav-link-list left-nav-link"> <span>中期检查管理</span>
-            </a></li>
-    
-            <li class="tpl-left-nav-item"><a href="javascript:;" class="nav-link link_a active" target="iframe_a">  <span>毕业论文（设计）管理</span>
-            </a>
-              <ul class="tpl-left-nav-sub-menu" style="display: none;">
-                <li><a href="sktbg.html" class="link_a" target="iframe_a"> <span>我的论文</span>
-                </a><a href="smdb.html" class="link_a" target="iframe_a"> <span>历史版本</span>
-                </a></li>
-              </ul></li>
-
-            <li class="tpl-left-nav-item"><a href="scomment.html"
-              class="nav-link tpl-left-nav-link-list link_a" target="iframe_a"> <span>评审答辩和成绩管理</span>
-            </a></li>
-
-            <li class="tpl-left-nav-item"><a href="javascript:;" class="nav-link link_a active" target="iframe_a">  <span>用户设置</span>
-            </a>
-              <ul class="tpl-left-nav-sub-menu" style="display: none;">
-                <li><a href="sktbg.html" class="link_a" target="iframe_a"> <span>个人信息管理</span>
-                </a><a href="smdb.html" class="link_a" target="iframe_a"> <span>修改密码</span>
-                </a></li>
-              </ul></li>
           </ul>
         </div>
       </div>
-  </div>
-</body>
+    </nav>
+    <div class="wrapper">
+      <div id="top">
+        北京科技大学本科生毕业设计(论文)管理系统
+      </div>
+      <div class="tpl-left-nav tpl-left-nav-hover" style="display: block;">
+        <div class="tpl-left-nav-title">学生</div>
+        <div class="tpl-left-nav-list">
+          <ul class="tpl-left-nav-menu">
+            <li class="tpl-left-nav-item">
+              <a
+                href="sContent.html"
+                class="nav-link link_a active"
+                target="iframe_a"
+              >
+                <span>首页管理</span>
+              </a>
+            </li>
 
+            <li class="tpl-left-nav-item">
+              <a href="javascript:;" class="nav-link link_a" target="iframe_a">
+                <span>选题管理</span>
+              </a>
+              <ul class="tpl-left-nav-sub-menu" style="display: none;">
+                <li>
+                  <a href="sChoose.html" class="link_a" target="iframe_a">
+                    <span>可选题目</span> </a
+                  ><a href="sApplication.html" class="link_a" target="iframe_a">
+                    <span>我的申请</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="tpl-left-nav-item">
+              <a
+                href="sOpeningReport.html"
+                class="nav-link tpl-left-nav-link-list left-nav-link"
+              >
+                <span>选题报告管理</span>
+              </a>
+            </li>
+
+            <li class="tpl-left-nav-item">
+              <a href="sMidtermReport.html" class="nav-link tpl-left-nav-link-list left-nav-link">
+                <span>中期检查管理</span>
+              </a>
+            </li>
+
+            <li class="tpl-left-nav-item">
+              <a
+                href="javascript:;"
+                class="nav-link link_a active"
+                target="iframe_a"
+              >
+                <span>毕业论文（设计）管理</span>
+              </a>
+              <ul class="tpl-left-nav-sub-menu" style="display: none;">
+                <li>
+                  <a href="sMyPaper.html" class="link_a" target="iframe_a">
+                    <span>我的论文</span> </a
+                  ><a href="sHistory.html" class="link_a" target="iframe_a">
+                    <span>历史版本</span>
+                  </a>
+                </li>
+                x
+              </ul>
+            </li>
+
+            <li class="tpl-left-nav-item">
+              <a
+                href="sRemark.html"
+                class="nav-link tpl-left-nav-link-list link_a"
+                target="iframe_a"
+              >
+                <span>评审答辩和成绩管理</span>
+              </a>
+            </li>
+
+            <li class="tpl-left-nav-item">
+              <a
+                href="javascript:;"
+                class="nav-link link_a active"
+                target="iframe_a"
+              >
+                <span>用户设置</span>
+              </a>
+              <ul class="tpl-left-nav-sub-menu" style="display: none;">
+                <li>
+                  <a href="sInfo.html" class="link_a" target="iframe_a">
+                    <span>个人信息管理</span> </a
+                  ><a href="sChangePassword.html" class="link_a" target="iframe_a">
+                    <span>修改密码</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
-
