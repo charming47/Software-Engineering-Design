@@ -12,8 +12,10 @@
 			$this->stuId=$stuId;
 		}
 
-
-		//TODO
+		//获得该名学生选的所有题目的题目号。
+		public function getTopidAppled(){
+			return 
+		}
 		public function initSinglePersonel(){
 			
 		}
