@@ -30,9 +30,11 @@
 			return $this->expertise;
 		}
 
-		//TODO
 		public abstract function initSinglePersonel();
-		public abstract function updateSinglePersonel();
+		
+		public abstract function updatePassword();//更新数据表中的人员的名字。
+		public abstract function updateName();//更新数据表中的人员的名字。
+		public abstract function updateName();
 
 	}
 	
