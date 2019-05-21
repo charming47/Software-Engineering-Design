@@ -6,9 +6,9 @@ html {
 
 body {
   margin: 100;
- background-image:url(../img/west.jpg);
+ background-image:url(./img/west.jpg);
  background-repeat:no-repeat;
- background-size:1400px 620px;
+ background-size:1380px 625px;
 }
 
 .form-title{
@@ -21,9 +21,9 @@ body {
 .login-lable{
   background-color:#beb7b7;
   border:1px solid red;
-  height:300px;
+  height:250px;
   width:300px;
-  padding:5px;
+  padding: 10px;
 
   position: relative;
   left:1000px;
