@@ -32,9 +32,8 @@
     <div class="container">
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li class="message">
-            <a href="#">通知</a>
-          </li>
+            <span><a href="#">通知</a></span>
+            <span><a href="#">退出</a></span>
         </ul>
       </div>
     </div>
@@ -43,57 +42,52 @@
     <div id="top">
       北京科技大学本科生毕业设计(论文)管理系统
     </div>
-    <table width="100%" id="main">
-      <tbody>
-        <tr valign="top">
-          <td>
-            <nav>
-              <div>
-                <a href="#nowhere" clicked="true">
-                  <span class="glyphicon glyphicon-tags"></span>
-                  &nbsp;学生
-                </a>
-                <a href="#nowhere" clicked="true" style="display:block">
-                  <span id="index-management">首页管理</span>
-                </a>
-                <a href="#nowhere" clicked="true" style="display:block">
-                  <span id="select-subject-management">选题管理</span>
-                </a>
-                <a href="#nowhere" clicked="true" style="display:block">
-                  <span id="subject-report-management">选题报告管理</span>
-                </a>
-                <a href="#nowhere" clicked="true" style="display:block">
-                  <span id="interim-report-management">中期报告管理</span>
-                </a>
-                <a href="#nowhere" clicked="true" style="display:block">
-                  <span id="paper-management">毕业论文（设计）管理</span>
-                </a>
-                <a href="#nowhere" clicked="true" style="display:block">
-                  <span id="remark-score-management">评审答辩和成绩管理</span>
-                </a>
-                <a href="#nowhere" clicked="true">
-                  <span class="glyphicon glyphicon-tags"></span>
-                  &nbsp;用户设置
-                </a>
-                <a href="#nowhere" clicked="true" style="display:block">
-                  <span id="personal-info-management">个人信息管理</span>
-                </a>
-                <a href="#nowhere" clicked="true" style="display:block">
-                  <span id="change-password">修改密码</span>
-                </a>
-              </div>
-            </nav>
-            <!-- 如何将导航列表右边的内容变为网页？像咱们的课程中心一样 -->
-            <!-- <div id="frame">
-              <iframe src="#">
-                
-              </iframe>
-            </div> -->
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="tpl-left-nav tpl-left-nav-hover" style="display: block;">
+        <div class="tpl-left-nav-title">学生</div>
+        <div class="tpl-left-nav-list">
+          <ul class="tpl-left-nav-menu">
+
+            <li class="tpl-left-nav-item"><a href="sIndex.html" class="nav-link link_a active" target="iframe_a"> <span>首页管理</span>
+            </a></li>
+
+            <li class="tpl-left-nav-item"><a href="javascript:;" class="nav-link link_a" target="iframe_a">  <span>选题管理</span>
+            </a>
+              <ul class="tpl-left-nav-sub-menu" style="display: none;">
+                <li><a href="sChoose.html" class="link_a" target="iframe_a"> <span>可选题目</span>
+                </a><a href="sApplication.html" class="link_a" target="iframe_a"> <span>我的申请</span>
+                </a></li>
+              </ul></li>
+    
+            <li class="tpl-left-nav-item"><a href="sOpeningReport" class="nav-link tpl-left-nav-link-list left-nav-link"> <span>选题报告管理</span>
+            </a></li>
+    
+            <li class="tpl-left-nav-item"><a href="s" class="nav-link tpl-left-nav-link-list left-nav-link"> <span>中期检查管理</span>
+            </a></li>
+    
+            <li class="tpl-left-nav-item"><a href="javascript:;" class="nav-link link_a active" target="iframe_a">  <span>毕业论文（设计）管理</span>
+            </a>
+              <ul class="tpl-left-nav-sub-menu" style="display: none;">
+                <li><a href="sktbg.html" class="link_a" target="iframe_a"> <span>我的论文</span>
+                </a><a href="smdb.html" class="link_a" target="iframe_a"> <span>历史版本</span>
+                </a></li>
+              </ul></li>
+
+            <li class="tpl-left-nav-item"><a href="scomment.html"
+              class="nav-link tpl-left-nav-link-list link_a" target="iframe_a"> <span>评审答辩和成绩管理</span>
+            </a></li>
+
+            <li class="tpl-left-nav-item"><a href="javascript:;" class="nav-link link_a active" target="iframe_a">  <span>用户设置</span>
+            </a>
+              <ul class="tpl-left-nav-sub-menu" style="display: none;">
+                <li><a href="sktbg.html" class="link_a" target="iframe_a"> <span>个人信息管理</span>
+                </a><a href="smdb.html" class="link_a" target="iframe_a"> <span>修改密码</span>
+                </a></li>
+              </ul></li>
+          </ul>
+        </div>
+      </div>
   </div>
 </body>
 
 </html>
+
