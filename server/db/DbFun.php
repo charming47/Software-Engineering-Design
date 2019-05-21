@@ -33,8 +33,8 @@
 
 	//函数返回的是一个PDO statement对象。
 	//如果想取出里面的值，需要通过foreach遍历。
-	function update($tableName,$keyName,$keyValue,$updateValue){
-		$sql="update $tableName set name='$updateValue' where $keyName='$keyValue'";
+	function update($tableName,$attrName,$updateValue,$keyName,$keyValue){
+		$sql="update $tableName set $attrName='$updateValue' where $keyName=$keyValue";
 		$stmt=$conn->exec($sql);
 	}
 
@@ -45,3 +45,4 @@
 
 
 
+/*  */
