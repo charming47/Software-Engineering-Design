@@ -5,8 +5,7 @@
 	function querySingle($tableName,$keyName,$keyValue,$attr){
 		$sql="select $attr from $tableName where $keyName = '$keyValue';";
 		$stmt=$conn->query($sql);
-		$rows=$stmt->fetch(PDO::FETCH_ASSOC);
-		return $rows["$attr"];
+		return $stmt->fetch(PDO::FETCH_ASSOC);
 	}
 
 	//函数返回的是一个PDO statement对象。

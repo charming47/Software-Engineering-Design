@@ -23,8 +23,25 @@
 			$stuInfo=array("stu_id"=>getStuId(),"name"=>getName(),"password"=>getStuId());
 			insert("student",$stuInfo);
 		}
-		public function updateSinglePersonel($){
-			
+		//更新数据表中的人员的名字。
+		public function updateName(){
+			update("student","stu_id",getStuId(),getName());
+		}
+		//更新数据表中的人员的邮箱。
+		public function updateEmail(){
+			update("student","stu_id",getStuId(),getEmail());
+		}
+		//更新数据表中的人员的电话号码。
+		public function updatePhoneNumber(){
+			update("student","stu_id",getStuId(),getEmail());
+		}
+		//更新数据表中的人员的专长。
+		public function updateExpertise(){
+			update("student","stu_id",getStuId(),getExpertise());
+		}
+		//更新数据表中的人员的密码。
+		public function updatePassword(){
+			update("student","stu_id",getStuId(),getExpertise());
 		}
 		public function lookOverTopic(){
 
@@ -34,6 +51,6 @@
 			}
 			else{
 					showErro();
-		}
 			}
+		}
 	}
