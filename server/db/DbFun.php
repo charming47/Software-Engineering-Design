@@ -31,7 +31,7 @@
 
 
 	function update($tableName,$keyName,$keyValue,$updateValue){
-		$sql="update $tableName set name='$updateValue' where $keyName='$keyValue'";
+		$sql="update $tableName set name='$updateValue' where $keyName=$keyValue";
 		$stmt=$conn->exec($sql);
 	}
 

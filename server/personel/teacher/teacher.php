@@ -25,6 +25,16 @@
 			$insertTopic = array('teaId'=>getTeaId()，'name' => $name , 'background' =>$background,'requirement'=>$requirement);
 			insert("topic",$insertTopic);
 		}
+		public function manageTopic($name,$keyName,$keyValue,$updateValue,$update,$delete){
+			$updateTopic = update($name,$keyName,$keyValue,$updateValue);
+			$deleteTopic = delete($name,$keyName,$keyValue);
+			if($update){
+				update($name,$keyName,$keyValue,$updateValue);
+			}
+			else if($delete){
+				delete($name,$keyName,$keyValue);
+			}
+		}
 
 
 	}
