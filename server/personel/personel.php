@@ -1,5 +1,5 @@
 <?php
-	class Personel{
+	class abstract Personel{
 		private $name='';
 		private $password='';
 		private $email='';
@@ -31,12 +31,8 @@
 		}
 
 		//TODO
-		public function initSinglePersonel(){
-
-		}
-		public function updateSinglePersonel(){
-			
-		}
+		public abstract function initSinglePersonel();
+		public abstract function updateSinglePersonel();
 
 	}
 	
