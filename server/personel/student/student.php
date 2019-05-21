@@ -1,8 +1,9 @@
 <?php
-	require("Personel.php");
-	class Student{
+	require("../Personel.php");
+	class Student extends Personel{
 		private $stuId='';
-		private $per=new Personel();
+		
+		private $selectTopic;
 
 		public function getStuId(){
 			return $this->stuId;
@@ -14,7 +15,7 @@
 
 		//TODO
 		public function initSinglePersonel(){
-
+			
 		}
 		public function updateSinglePersonel(){
 			
