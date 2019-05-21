@@ -4,9 +4,16 @@
 	 */
 	require("../Personel.php");
 	require("../../db/DbFun.php");
-	class ClassName extends Personel
+	require("../../topic/topic.php");
+	class Teacher extends Personel
 	{
 		private $teaId;
+
+		private $topic=new array();
+
+		public function recordTopic(){
+			array_push($topic );
+		}
 
 		public function getTeaId(){
 			return $this->teaId;
@@ -22,18 +29,20 @@
 			
 		}//ENDTODO
 		public function releaseTopic($name,$background,$requirement){
-			$insertTopic = array('teaId'=>getTeaId()，'name' => $name , 'background' =>$background,'requirement'=>$requirement);
-			insert("topic",$insertTopic);
+			$releaseTopic->createTopic(getTeaId(),$name,$background,$requirement);
 		}
-		public function manageTopic($name,$keyName,$keyValue,$updateValue,$update,$delete){
-			$updateTopic = update($name,$keyName,$keyValue,$updateValue);
-			$deleteTopic = delete($name,$keyName,$keyValue);
-			if($update){
-				update($name,$keyName,$keyValue,$updateValue);
-			}
-			else if($delete){
-				delete($name,$keyName,$keyValue);
-			}
+		public function updateBack(){
+			updateBackgrond();
+		}
+		public function updateRqire(){
+			updateRqirement();
+		}
+		public function deleteTop(){
+			deltetTopic();
+		}
+
+		public function writeRequirement($name,$requirement){
+			
 		}
 
 

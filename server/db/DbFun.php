@@ -30,8 +30,8 @@
 
 
 
-	function update($tableName,$keyName,$keyValue,$updateValue){
-		$sql="update $tableName set name='$updateValue' where $keyName=$keyValue";
+	function update($tableName,$attrName,$updateValue,$keyName,$keyValue){
+		$sql="update $tableName set $attrName='$updateValue' where $keyName=$keyValue";
 		$stmt=$conn->exec($sql);
 	}
 
