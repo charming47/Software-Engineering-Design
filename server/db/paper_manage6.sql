@@ -208,6 +208,7 @@ CREATE TABLE `teach_director` (
 -- ----------------------------
 -- Table structure for topic
 -- ----------------------------
+-- insert into topic (tea_id,name,background,requirement) values(1,'软工','发士大夫士大夫','感大师傅士大夫地方');
 DROP TABLE IF EXISTS `topic`;
 CREATE TABLE `topic` (
   `top_id` varchar(20) NOT NULL,
