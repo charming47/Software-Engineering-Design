@@ -45,12 +45,7 @@
 		}
 		public function lookOverTopic(){
 
-			queryList("topic","name","top_id","*");
-			if(checkSuccess()){
-				showSuccess();
-			}
-			else{
-					showErro();
-			}
+			//showTopic还没有写好，等前端这个界面写好之后再把这行代码解注释。
+			//showTopic(queryListAll("topic","name");)
 		}
 	}
