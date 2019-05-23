@@ -10,7 +10,7 @@
 
 	//函数返回的是一个PDO statement对象。
 	//如果想取出里面的值，需要通过foreach遍历。
-	function queryList($tableName,$attr){
+	function queryList($tableName,$attr,$keyName,$keyValue){
 		$sql="select $attr from $tableName;";
 		$stmt=$conn->query($sql);
 		return $stmt->fetch(PDO::FETCH_ASSOC);
