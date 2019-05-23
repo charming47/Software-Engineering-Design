@@ -1,8 +1,9 @@
 <?php
-	class Personel{
+	class abstract Personel{
 		private $name='';
 		private $password='';
 		private $email='';
+		private $phoneNumber='';
 		private $expertise='';
 		
 		public function getName(){
@@ -23,6 +24,12 @@
 		public function getEmail(){
 			return $this->email;
 		}
+		public function getPhoneNumber(){
+			return $this->phoneNumber;
+		}
+		public function setPhoneNumber($phoneNumber){
+			$this->phoneNumber=$phoneNumber;
+		}
 		public function setExpertise($expertise){
 			$this->expertise=$expertise;
 		}
@@ -30,13 +37,16 @@
 			return $this->expertise;
 		}
 
-		//TODO
-		public function initSinglePersonel(){
-
-		}
-		public function updateSinglePersonel(){
-			
-		}
-
+		public abstract function initSinglePersonel();
+		
+		//更新数据表中的人员的名字。
+		public abstract function updateName();//更新数据表中的人员的邮箱。
+		public abstract function updateEmail();
+		//更新数据表中的人员的电话号码。
+		public abstract function updatePhoneNumber();
+		//更新数据表中的人员的专长。
+		public abstract function updateExpertise();
+		//更新数据表中的人员的密码。
+		public abstract function updatePassword();
 	}
 	

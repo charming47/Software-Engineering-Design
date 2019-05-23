@@ -5,16 +5,19 @@
 	function querySingle($tableName,$keyName,$keyValue,$attr){
 		$sql="select $attr from $tableName where $keyName = '$keyValue';";
 		$stmt=$conn->query($sql);
-		$rows=$stmt->fetch(PDO::FETCH_ASSOC);
-		return $rows["$attr"];
+		return $stmt->fetch(PDO::FETCH_ASSOC);
 	}
 
+	//函数返回的是一个PDO statement对象。
+	//如果想取出里面的值，需要通过foreach遍历。
 	function queryList($tableName,$attr){
 		$sql="select $attr from $tableName;";
 		$stmt=$conn->query($sql);
 		return $stmt->fetch(PDO::FETCH_ASSOC);
 	}
-
+	
+	//函数返回的是一个PDO statement对象。
+	//如果想取出里面的值，需要通过foreach遍历。
 	function insert($tableName,$attrNameAndValue){
 		$AttrArrStr="";
 		$ValueArrStr="";
@@ -28,10 +31,10 @@
 		$stmt=$conn->exec($sql);
 	}
 
-
-
-	function update($tableName,$keyName,$keyValue,$updateValue){
-		$sql="update $tableName set name='$updateValue' where $keyName='$keyValue'";
+	//函数返回的是一个PDO statement对象。
+	//如果想取出里面的值，需要通过foreach遍历。
+	function update($tableName,$attrName,$updateValue,$keyName,$keyValue){
+		$sql="update $tableName set $attrName='$updateValue' where $keyName=$keyValue";
 		$stmt=$conn->exec($sql);
 	}
 
@@ -42,3 +45,4 @@
 
 
 
+/*  */

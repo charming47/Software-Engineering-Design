@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2019-05-16 16:10:16
+Date: 2019-05-21 20:12:37
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -131,13 +131,14 @@ CREATE TABLE `student` (
   `password` varchar(20) NOT NULL,
   `email` varchar(20) DEFAULT NULL,
   `expertise` varchar(50) DEFAULT NULL,
+  `phone_number` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`stu_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of student
 -- ----------------------------
-INSERT INTO `student` VALUES ('1', 'sss', 'sss', null, null);
+INSERT INTO `student` VALUES ('1', 'sss', 'sss', null, null, null);
 
 -- ----------------------------
 -- Table structure for successfull_apply
@@ -182,6 +183,7 @@ CREATE TABLE `teacher` (
   `name` varchar(10) NOT NULL,
   `password` varchar(20) NOT NULL,
   `email` varchar(20) DEFAULT NULL,
+  `phone_number` varchar(20) DEFAULT NULL,
   `expertise` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`tea_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -189,7 +191,7 @@ CREATE TABLE `teacher` (
 -- ----------------------------
 -- Records of teacher
 -- ----------------------------
-INSERT INTO `teacher` VALUES ('1', 'ttt', 'ttt', null, null);
+INSERT INTO `teacher` VALUES ('1', 'ttt', 'ttt', null, null, null);
 
 -- ----------------------------
 -- Table structure for teach_director
@@ -208,7 +210,6 @@ CREATE TABLE `teach_director` (
 -- ----------------------------
 -- Table structure for topic
 -- ----------------------------
--- insert into topic (tea_id,name,background,requirement) values(1,'软工','发士大夫士大夫','感大师傅士大夫地方');
 DROP TABLE IF EXISTS `topic`;
 CREATE TABLE `topic` (
   `top_id` varchar(20) NOT NULL,

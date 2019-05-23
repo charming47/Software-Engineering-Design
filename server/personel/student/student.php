@@ -1,8 +1,10 @@
 <?php
-	require("Personel.php");
-	class Student{
+	require("../Personel.php");
+	require(../../db/DbFun.php);
+	class Student extends Personel{
 		private $stuId='';
-		private $per=new Personel();
+		
+		private $selectTopic;
 
 		public function getStuId(){
 			return $this->stuId;
@@ -11,13 +13,35 @@
 			$this->stuId=$stuId;
 		}
 
-
-		//TODO
-		public function initSinglePersonel(){
-
+		//获得该名学生选的所有题目的题目号。
+		public function getTopidAppled(){
+			return 
 		}
-		public function updateSinglePersonel(){
-			
+		
+		//学生的密码默认为学生的学号。
+		public function initSinglePersonel(){
+			$stuInfo=array("stu_id"=>getStuId(),"name"=>getName(),"password"=>getStuId());
+			insert("student",$stuInfo);
+		}
+		//更新数据表中的人员的名字。
+		public function updateName(){
+			update("student","stu_id",getStuId(),getName());
+		}
+		//更新数据表中的人员的邮箱。
+		public function updateEmail(){
+			update("student","stu_id",getStuId(),getEmail());
+		}
+		//更新数据表中的人员的电话号码。
+		public function updatePhoneNumber(){
+			update("student","stu_id",getStuId(),getEmail());
+		}
+		//更新数据表中的人员的专长。
+		public function updateExpertise(){
+			update("student","stu_id",getStuId(),getExpertise());
+		}
+		//更新数据表中的人员的密码。
+		public function updatePassword(){
+			update("student","stu_id",getStuId(),getExpertise());
 		}
 		public function lookOverTopic(){
 
@@ -27,6 +51,6 @@
 			}
 			else{
 					showErro();
-		}
 			}
+		}
 	}
