@@ -3,33 +3,33 @@
 	 * 
 	 */
 	require("../../db/DbFun.php");
-	require("../ApplyTopic.php");
-	class Topic 
+	require("../Applytop.php");
+	class top 
 	{
-		private $topicName;
+		private $topName;
 
 		private $background;
 
 		private $requirement;
 
-		private $topicId;
+		private $topId;
 
-		private $applyTopic=new ApplyTopic();
+		private $applytop=new Applytop();
 
-		public function getTopicName(){
-			return $this->topicName;
+		public function getTopName(){
+			return $this->topName;
 		}
-		public function setTopicName($topicId){
-			$this->topicName=$topicName;
+		public function setTopName($topId){
+			$this->topName=$topName;
 		}
-		public function getTopicId(){
-			return $this->topicId;
+		public function getTopId(){
+			return $this->topId;
 		}
-		public function setTopicId($topicId){
-			$this->topicId=$topicId;
+		public function setTopId($topId){
+			$this->topId=$topId;
 		}
 		public function getbackground(){
-			return $this->topicName;
+			return $this->topName;
 		}
 		public function setbackground($background){
 			$this->background=$background;
@@ -41,30 +41,30 @@
 			$this->requirement=$requirement;
 		}
 		public function defineStudent($stuId){
-			$insertStuAndTopic=array('stuId'=>$stuId ,'topicId'=>getTopicId());
-			insert('successfull_apply', $insertStuAndTopic);
+			$insertStuAndtop=array('stuId'=>$stuId ,'topId'=>getTopId());
+			insert('successfull_apply', $insertStuAndtop);
 
 		}
 		public function defineApplyStudent($stuId,$applyReason){
 			//$insertApplyStudent=array('' => , );
-			//调用createTopiceApply方法实现
-			$applyTopic->createTopicApply(getTopicId(),$stuId,$applyReason);
+			//调用createtopeApply方法实现
+			$applytop->createtopApply(getTopId(),$stuId,$applyReason);
 		}
-		public function createTopic($teaId,$name,$background,$requirement){
-			$insertTopic = array('teaId'=>$teaId，'name' => $name , 'background' =>$background,'requirement'=>$requirement);
-			insert("topic",$insertTopic);
+		public function createtop($teaId,$name,$background,$requirement){
+			$inserttop = array('teaId'=>$teaId，'name' => $name , 'background' =>$background,'requirement'=>$requirement);
+			insert("top",$inserttop);
 		}
 		public function updateBackgrond(){
-			update('topic','background',getbackground(),'top_id',getTopicId());
+			update('top','background',getbackground(),'top_id',getTopId());
 		}
 		public function updateRequirement(){
-			update('topic','requirement',getrequirement(),'top_id',getTopicId());
+			update('top','requirement',getrequirement(),'top_id',getTopId());
 		}
-		public function deleteTopic(){
-			delete('topic','top_id',getTopicId());
+		public function deletetop(){
+			delete('top','top_id',getTopId());
 		}
-		public function queryTopic(){
-			return querySingle('topic','top_id',getTopicId(),'*');
+		public function querytop(){
+			return querySingle('top','top_id',getTopId(),'*');
 		}
 		}
 	}

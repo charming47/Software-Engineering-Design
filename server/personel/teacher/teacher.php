@@ -40,10 +40,12 @@
 		public function deleteTop(){
 			deltetTopic();
 		}
-
-		public function writeRequirement($name,$requirement){
-			
+		//topic 是选题的对象 taskbookname 是存放的路径
+		public function writeTaskBook($taskBookName,$topic){
+			$taskBook = array('top_id' => $topic->getTopId(),'task_book_name' => $taskbookname);
+			insert("task_book",$taskBook);
 		}
+
 
 
 	}
