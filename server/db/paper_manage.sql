@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2019-05-21 20:12:37
+Date: 2019-05-23 09:12:35
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -132,13 +132,14 @@ CREATE TABLE `student` (
   `email` varchar(20) DEFAULT NULL,
   `expertise` varchar(50) DEFAULT NULL,
   `phone_number` varchar(20) DEFAULT NULL,
+  `progress_rate` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`stu_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of student
 -- ----------------------------
-INSERT INTO `student` VALUES ('1', 'sss', 'sss', null, null, null);
+INSERT INTO `student` VALUES ('1', 'sss', 'sss', null, null, null, null);
 
 -- ----------------------------
 -- Table structure for successfull_apply
@@ -225,6 +226,7 @@ CREATE TABLE `topic` (
 -- ----------------------------
 -- Records of topic
 -- ----------------------------
+INSERT INTO `topic` VALUES ('1', '1', '毕设题目1', '背景1', '需求1');
 
 -- ----------------------------
 -- Table structure for topic_selection_report
