@@ -53,6 +53,6 @@
 		
 		//类图中没有的方法
 		public function viewProgressRate(){
-			
+			querySingle("student","stu_id",getStuId(),"progress_rate");
 		}
 	}

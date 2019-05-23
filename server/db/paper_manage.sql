@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2019-05-23 09:12:35
+Date: 2019-05-23 10:49:15
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -76,7 +76,7 @@ CREATE TABLE `editing_paper` (
   PRIMARY KEY (`stu_id`,`version_id`),
   KEY `version_id` (`version_id`),
   KEY `stu_id` (`stu_id`),
-  CONSTRAINT `editing_paper_ibfk_1` FOREIGN KEY (`stu_id`) REFERENCES `successfull_apply` (`stu_id`)
+  CONSTRAINT `editing_paper_ibfk_1` FOREIGN KEY (`stu_id`) REFERENCES `successful_apply` (`stu_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -114,7 +114,7 @@ CREATE TABLE `midterm_test_form` (
   `exam_opinion` varchar(800) DEFAULT NULL,
   `pass` varchar(1) DEFAULT NULL,
   PRIMARY KEY (`stu_id`),
-  CONSTRAINT `midterm_test_form_ibfk_1` FOREIGN KEY (`stu_id`) REFERENCES `successfull_apply` (`stu_id`)
+  CONSTRAINT `midterm_test_form_ibfk_1` FOREIGN KEY (`stu_id`) REFERENCES `successful_apply` (`stu_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -142,21 +142,21 @@ CREATE TABLE `student` (
 INSERT INTO `student` VALUES ('1', 'sss', 'sss', null, null, null, null);
 
 -- ----------------------------
--- Table structure for successfull_apply
+-- Table structure for successful_apply
 -- ----------------------------
-DROP TABLE IF EXISTS `successfull_apply`;
-CREATE TABLE `successfull_apply` (
+DROP TABLE IF EXISTS `successful_apply`;
+CREATE TABLE `successful_apply` (
   `stu_id` varchar(20) NOT NULL,
   `top_id` varchar(20) NOT NULL,
   PRIMARY KEY (`stu_id`),
-  KEY `top_id` (`top_id`),
-  KEY `stu_id` (`stu_id`),
-  CONSTRAINT `successfull_apply_ibfk_1` FOREIGN KEY (`stu_id`) REFERENCES `apply_topic` (`stu_id`),
-  CONSTRAINT `successfull_apply_ibfk_2` FOREIGN KEY (`top_id`) REFERENCES `apply_topic` (`top_id`)
+  KEY `top_id` (`top_id`) USING BTREE,
+  KEY `stu_id` (`stu_id`) USING BTREE,
+  CONSTRAINT `successful_apply_ibfk_1` FOREIGN KEY (`stu_id`) REFERENCES `apply_topic` (`stu_id`),
+  CONSTRAINT `successful_apply_ibfk_2` FOREIGN KEY (`top_id`) REFERENCES `apply_topic` (`top_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of successfull_apply
+-- Records of successful_apply
 -- ----------------------------
 
 -- ----------------------------
@@ -238,7 +238,7 @@ CREATE TABLE `topic_selection_report` (
   `guiding_opinion` varchar(800) DEFAULT NULL,
   `pass` varchar(1) DEFAULT NULL,
   PRIMARY KEY (`stu_id`),
-  CONSTRAINT `topic_selection_report_ibfk_1` FOREIGN KEY (`stu_id`) REFERENCES `successfull_apply` (`stu_id`)
+  CONSTRAINT `topic_selection_report_ibfk_1` FOREIGN KEY (`stu_id`) REFERENCES `successful_apply` (`stu_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
