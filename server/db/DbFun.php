@@ -7,11 +7,21 @@
 		$stmt=$conn->query($sql);
 		return $stmt->fetch(PDO::FETCH_ASSOC);
 	}
-
+	
+	//查询表中某一个属性中的所有的值。
 	//函数返回的是一个PDO statement对象。
 	//如果想取出里面的值，需要通过foreach遍历。
-	function queryList($tableName,$attr,$keyName,$keyValue){
+	function queryListAll($tableName,$attr,$keyName,$keyValue){
 		$sql="select $attr from $tableName;";
+		$stmt=$conn->query($sql);
+		return $stmt->fetch(PDO::FETCH_ASSOC);
+	}
+	
+	//查询表中某一个属性中符合某一个条件的值。
+	//函数返回的是一个PDO statement对象。
+	//如果想取出里面的值，需要通过foreach遍历。
+	function queryListCondition($tableName,$attr,$keyName,$keyValue){
+		$sql="select $attr from $tableName where $keyName='$keyValue';";
 		$stmt=$conn->query($sql);
 		return $stmt->fetch(PDO::FETCH_ASSOC);
 	}

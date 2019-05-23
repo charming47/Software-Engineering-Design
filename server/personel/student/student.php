@@ -45,7 +45,7 @@
 		}
 		public function lookOverTopic(){
 
-			queryDb(getStuId(),"topic","name");
+			queryList("topic","name","top_id","*");
 			if(checkSuccess()){
 				showSuccess();
 			}
