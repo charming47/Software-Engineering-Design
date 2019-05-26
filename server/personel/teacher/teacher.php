@@ -41,8 +41,8 @@
 			deleteTop();
 		}
 		//Top 是选题的对象 taskbookname 是存放的路径
-		public function writeTaskBook($taskBookName,$Top){
-			$taskBook = array('top_id' => $Top->getTopId(),'task_book_name' => $taskbookname);
+		public function writeTaskBook($taskBookName,$top){
+			$taskBook = array('top_id' => $top->getTopId(),'task_book_name' => $taskbookname);
 			insert("task_book",$taskBook);
 		}
 		public function selectStudent($stuId,$topId){
@@ -52,8 +52,25 @@
 		public function viewTopicSelectionReport($stuId){
 			return querySingle('topic_selection_report','stu_id',$stuId,'topic_selection_report_name');
 		}
-		public function writeGuidingOpinion(){
-			
+		//这里guidingOpinionContent存放的也是路径吗？
+		public function writeGuidingOpinion($stuId, $guidingOpinionContent){
+			$guidingOpinion = array('stu_id' => $stuId,'guiding_opinion' => $guidingOpinionContent);
+			insert("topic_selection_report",$guidingOpinion);
+		}
+		public function writeAmendment($stuId,$amendment){
+			$amendments = array('stu_id' => $stuId,'expertise' => $amendment);
+			insert("editing_paper",$amendments);
+		}
+		public function writeTutorOpinion($modifyingOpinion){
+			$modifyingOpinion = array('tea_id' => $teaId->getTeaId(),'expertise' => $modifyingOpinion);
+			insert("teacher",$modifyingOpinion);
+		}
+		public function selectAppraiser($Appraiser){
+			$chooseAppraiser = array('tea_id' => $Appraiser);
+			insert("appraiser",$chooseAppraiser);
+		}
+		public viewFinalPaper($stuId){
+			return querySingle('final_paper','stu_id',$stuId,'paper_name');
 		}
 
 
