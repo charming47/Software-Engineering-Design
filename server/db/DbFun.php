@@ -4,6 +4,8 @@ require_once('DbConn.php');
 // echo "在DbFun.php中。<br>";
 // echo "密码为：".$password."。<br>";
 // $str1="ssssssss";
+
+//方法返回的是一个数组。
 function querySingle($tableName, $keyName, $keyValue, $attr) {
 	global $conn;
     $sql = "select $attr from $tableName where $keyName = '$keyValue';";
