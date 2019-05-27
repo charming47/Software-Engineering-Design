@@ -1,9 +1,9 @@
 <?php
 /**
  */
-require("../../db/DbFun.php");
-require("../Applytop.php");
-class top {
+require_once("../../db/DbFun.php");
+require_once("../Applytop.php");
+class Top {
     private $topName;
 
     private $background;
@@ -66,5 +66,4 @@ class top {
         $topicInfo=queryListAll('topic', '*');
 		
     } 
-} 
-} 
+}
