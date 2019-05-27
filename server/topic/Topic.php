@@ -60,9 +60,10 @@ class Topic {
     } 
     // 把Topic对象中的变量赋值为数据库中的数据。
     public function getTopicInfoFromDb() {
-        $topicInfo = queryListCondition('topic', '*', 'top_id', $this->getTopId());
-        $this->setName($topicInfo['name']);
-        $this->setBackground($topicInfo['background']);
-        $this->setRequirement($topicInfo['requirement']);
+        $topicInfoStmt = queryListCondition('topic', '*', 'top_id', $this->getTopId());
+		$topicInfoArr=$topicInfoStmt->fetch(PDO::FETCH_ASSOC);
+        $this->setName($topicInfoArr['name']);
+        $this->setBackground($topicInfoArr['background']);
+        $this->setRequirement($topicInfoArr['requirement']);
     } 
 } 

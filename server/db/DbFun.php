@@ -36,9 +36,10 @@ function queryListCondition($tableName, $attr, $keyName, $keyValue) {
 	// echo '$str1为：'.$str1.'<br>';
 	// echo '$password为：'.$password.'<br>';
     $stmt = $conn->query($sql);
-    $topicArr=$stmt->fetch(PDO::FETCH_ASSOC);
-	echo $topicArr['top_id'];
-	return $topicArr;
+	
+    // $topicArr=$stmt->fetch(PDO::FETCH_ASSOC);
+	// echo $topicArr['top_id'];
+	return $stmt;
 } 
 // 函数返回的是一个PDO statement对象。
 // 如果想取出里面的值，需要通过foreach遍历。
