@@ -1,6 +1,6 @@
 <?php
 require_once("../Personel.php");
-require_once(. . / . . / db / DbFun . php);
+require_once("../../db/DbFun.php");
 class Student extends Personel {
     private $stuId = '';
 
@@ -16,19 +16,19 @@ class Student extends Personel {
     public function getTopidAppled() {
         return
     } 
-	//******************************************
+    // ******************************************
     // 学生的密码默认为学生的学号。
     public function initSinglePersonel() {
-        $stuInfo = array("stu_id" => getStuId(), "name" => getName(), "password" => getStuId());
+        $stuInfo = array("stu_id" => $this->getStuId(), "name" => $this->getName(), "password" => $this->getStuId());
         insert("student", $stuInfo);
     } 
     // 更新数据表中的人员的名字。
     public function updateName() {
-        update("student", "stu_id", getStuId(), getName());
+        update("student", "stu_id", $this->getStuId(), $this->getName());
     } 
     // 更新数据表中的人员的邮箱。
     public function updateEmail() {
-        update("student", "stu_id", getStuId(), $this->getEmail());
+        update("student", "stu_id", $this->getStuId(), $this->getEmail());
     } 
     // 更新数据表中的人员的电话号码。
     public function updatePhoneNumber() {
