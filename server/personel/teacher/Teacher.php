@@ -22,7 +22,7 @@ class Teacher extends Personel {
     // ***************************************
     // 在$TopicArr数组中存放教师所拥有的选题。
     public function setTeacherTopic() {
-        $TeacherTopIdArr = getTeacherTopId();
+        $TeacherTopIdArr = $this->getTeacherTopId();
         foreach($TeacherTopIdArr as $topId) {
             $teacherSingleTopic = new Topic();
             $teacherSingleTopic->setTopId($topId);
@@ -32,7 +32,7 @@ class Teacher extends Personel {
     } 
     // 该函数返回教师拥有的所有选题的选题号。
     private function getTeacherTopId() {
-        return queryListCondition("topic", "top_id", "top_id", getTeaId());
+        return queryListCondition("topic", "top_id", "top_id", $this->getTeaId());
     } 
     // TODO
     public function initSinglePersonel() {

@@ -1,7 +1,7 @@
 <?php
 require_once("../../db/DbFun.php");
 //require_once("../Applytop.php");
-class Tipic {
+class Topic {
     private $name;
 
     private $background;
