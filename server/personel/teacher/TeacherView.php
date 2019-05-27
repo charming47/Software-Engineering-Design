@@ -8,15 +8,19 @@ class TeacherView {
 		else{
 			echo '$topicsOfTeacher不为空。<br>';
 		}
+		echo "<tr>
+			<th>背景</th>
+			<th>需求</th>
+		</tr>";
         foreach($topicsOfTeacher as $singleTopic) {
             echo "<td>";
-            echo $singleTopic['name'];
+            echo $singleTopic->getName();
             echo "</td>";
             echo "<td>";
-            echo $singleTopic['background'];
+            echo $singleTopic->getBackground();
             echo "</td>";
             echo "<td>";
-            echo $singleTopic['requirement'];
+            echo $singleTopic->getRequirement();
             echo "</td>";
         } 
     } 

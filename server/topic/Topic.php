@@ -24,7 +24,7 @@ class Topic {
         $this->topId = $topId;
     } 
     public function getBackground() {
-        return $this->name;
+        return $this->background;
     } 
     public function setBackground($background) {
         $this->background = $background;
