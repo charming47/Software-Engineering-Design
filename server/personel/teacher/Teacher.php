@@ -60,8 +60,6 @@ class Teacher extends Personel {
         return queryListCondition("topic", "top_id", "top_id", $this->getTeaId());
     } 
     // TODO
-    public function initSinglePersonel() {
-    } 
     public function updateSinglePersonel() {
     } //ENDTODO
     public function releaseTopic($name, $background, $requirement) {

@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : LocalMySQL
+Source Server         : localMySQL
 Source Server Version : 50717
 Source Host           : localhost:3306
 Source Database       : paper_manage
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2019-05-27 09:47:32
+Date: 2019-05-27 18:08:24
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -68,9 +68,9 @@ CREATE TABLE `appraiser` (
 DROP TABLE IF EXISTS `editing_paper`;
 CREATE TABLE `editing_paper` (
   `stu_id` varchar(20) NOT NULL,
-  `version_id` int(11) NOT NULL,
+  `version_id` int(11) NOT NULL AUTO_INCREMENT,
   `paper_url` varchar(100) NOT NULL,
-  `create_time` datetime NOT NULL,
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `amendment` varchar(500) DEFAULT NULL,
   `pass` varchar(1) DEFAULT NULL,
   PRIMARY KEY (`stu_id`,`version_id`),
@@ -89,15 +89,15 @@ CREATE TABLE `editing_paper` (
 DROP TABLE IF EXISTS `final_paper`;
 CREATE TABLE `final_paper` (
   `stu_id` varchar(20) NOT NULL,
-  `version_id` int(11) NOT NULL,
+  `version_id` int(11) NOT NULL AUTO_INCREMENT,
   `score` int(11) DEFAULT NULL,
   `instructor_opinion_sheet_url` varchar(100) DEFAULT NULL,
   `appraiser_opinion_sheet_url` varchar(100) DEFAULT NULL,
   `pass` varchar(1) DEFAULT NULL,
   PRIMARY KEY (`stu_id`),
   KEY `version_id` (`version_id`),
-  CONSTRAINT `final_paper_ibfk_2` FOREIGN KEY (`version_id`) REFERENCES `editing_paper` (`version_id`),
-  CONSTRAINT `final_paper_ibfk_3` FOREIGN KEY (`stu_id`) REFERENCES `editing_paper` (`stu_id`)
+  CONSTRAINT `final_paper_ibfk_3` FOREIGN KEY (`stu_id`) REFERENCES `editing_paper` (`stu_id`),
+  CONSTRAINT `final_paper_ibfk_4` FOREIGN KEY (`version_id`) REFERENCES `editing_paper` (`version_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
