@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2019-05-23 10:49:15
+Date: 2019-05-27 09:47:32
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -69,7 +69,7 @@ DROP TABLE IF EXISTS `editing_paper`;
 CREATE TABLE `editing_paper` (
   `stu_id` varchar(20) NOT NULL,
   `version_id` int(11) NOT NULL,
-  `paper_name` varchar(100) NOT NULL,
+  `paper_url` varchar(100) NOT NULL,
   `create_time` datetime NOT NULL,
   `amendment` varchar(500) DEFAULT NULL,
   `pass` varchar(1) DEFAULT NULL,
@@ -91,8 +91,8 @@ CREATE TABLE `final_paper` (
   `stu_id` varchar(20) NOT NULL,
   `version_id` int(11) NOT NULL,
   `score` int(11) DEFAULT NULL,
-  `instructor_opinion_sheet_name` varchar(100) DEFAULT NULL,
-  `appraiser_opinion_sheet_name` varchar(100) DEFAULT NULL,
+  `instructor_opinion_sheet_url` varchar(100) DEFAULT NULL,
+  `appraiser_opinion_sheet_url` varchar(100) DEFAULT NULL,
   `pass` varchar(1) DEFAULT NULL,
   PRIMARY KEY (`stu_id`),
   KEY `version_id` (`version_id`),
@@ -110,7 +110,7 @@ CREATE TABLE `final_paper` (
 DROP TABLE IF EXISTS `midterm_test_form`;
 CREATE TABLE `midterm_test_form` (
   `stu_id` varchar(20) NOT NULL,
-  `midterm_test_form_name` varchar(100) DEFAULT NULL,
+  `midterm_test_form_url` varchar(100) DEFAULT NULL,
   `exam_opinion` varchar(800) DEFAULT NULL,
   `pass` varchar(1) DEFAULT NULL,
   PRIMARY KEY (`stu_id`),
@@ -165,7 +165,7 @@ CREATE TABLE `successful_apply` (
 DROP TABLE IF EXISTS `task_book`;
 CREATE TABLE `task_book` (
   `top_id` varchar(20) NOT NULL,
-  `task_book_name` varchar(100) NOT NULL,
+  `task_book_url` varchar(100) NOT NULL,
   `pass` varchar(1) DEFAULT NULL,
   PRIMARY KEY (`top_id`),
   CONSTRAINT `task_book_ibfk_1` FOREIGN KEY (`top_id`) REFERENCES `topic` (`top_id`)
@@ -234,7 +234,7 @@ INSERT INTO `topic` VALUES ('1', '1', '毕设题目1', '背景1', '需求1');
 DROP TABLE IF EXISTS `topic_selection_report`;
 CREATE TABLE `topic_selection_report` (
   `stu_id` varchar(20) NOT NULL,
-  `topic_selection_report_name` varchar(100) DEFAULT NULL,
+  `topic_selection_report_url` varchar(100) DEFAULT NULL,
   `guiding_opinion` varchar(800) DEFAULT NULL,
   `pass` varchar(1) DEFAULT NULL,
   PRIMARY KEY (`stu_id`),
