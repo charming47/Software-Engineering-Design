@@ -19,9 +19,10 @@ class Teacher extends Personel {
 	public function setTeacherTopic() {
 		$TeacherTopIdArr=getTeacherTopId();
 		foreach($TeacherTopIdArr as $topId){
-			$singleTeacherTopic=new Topic();
-			$singleTeacherTopic->setTopId($topId);
-			array_push($TopicArr,$singleTeacherTopic);
+			$teacherSingleTopic=new Topic();
+			$teacherSingleTopic->setTopId($topId);
+			$teacherSingleTopic->setTopId($topId);
+			array_push($TopicArr,$teacherSingleTopic);
 		}
     } 
     // 该函数返回教师拥有的所有选题的选题号。
