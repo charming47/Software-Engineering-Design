@@ -5,7 +5,7 @@ require_once("../../topic/Topic.php");
 class Teacher extends Personel {
     private $teaId; 
     // 用于存放教师拥有的选题的数组。
-    private $TopicArr;
+    private $TopicArr=array();
 
     public function getTeaId() {
         return $this->teaId;
@@ -47,11 +47,15 @@ class Teacher extends Personel {
     //在$TopicArr数组中存放教师所拥有的选题。
 	//这个函数执行完了之后，$TopicArr数组中的选题的对象中只有选题的题号，其他属性还没有初始化。
 	public function setTeacherTopic() {
-		$TeacherTopIdArr=getTeacherTopId();
+		global $TopicArr;
+		echo "在Teacher的setTeacherTopic中：<br>";
+		$TeacherTopIdArr=$this->getTeacherTopId();
+		echo '$TeacherTopIdArr：<br>';
+		print_r($TeacherTopIdArr);
 		foreach($TeacherTopIdArr as $topId){
 			$teacherSingleTopic= new Topic();
 			$teacherSingleTopic->setTopId($topId);
-			$teacherSingleTopic->setTopId($topId);
+			$teacherSingleTopic->getTopicInfoFromDb();
 			array_push($TopicArr,$teacherSingleTopic);
 		}
     } 
