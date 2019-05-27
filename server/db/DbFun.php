@@ -25,7 +25,7 @@ function queryListAll($tableName, $attr) {
 function queryListCondition($tableName, $attr, $keyName, $keyValue) {
 	global $conn;
     $sql = "select $attr from $tableName where $keyName='$keyValue';"; 
-	echo '$sql为：'.$sql.'<br>';
+	// echo '$sql为：'.$sql.'<br>';
 	// echo '在DbFun.php的queryListCondition中，';
     // if($conn==null){
 		// echo '$conn为空。<br>';

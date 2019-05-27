@@ -6,14 +6,15 @@ class TeacherController{
 		$singleTeacher=new Teacher();
 		$singleTeacher->setTeaId('1');
 		$singleTeacher->setTeacherTopic();
+		//$topicsOfTeacher是教师所拥有的选题数组。
 		$topicsOfTeacher=$singleTeacher->getTopicArr();
-		echo "在TeacherController的showTopicsOfTeacher中，";
-		if($topicsOfTeacher==null){
-			echo '$topicsOfTeacher为空。<br>';
-		}
-		else{
-			echo '$topicsOfTeacher不为空。<br>';
-		}
+		// echo "在TeacherController的showTopicsOfTeacher中，";
+		// if($topicsOfTeacher==null){
+			// echo '$topicsOfTeacher为空。<br>';
+		// }
+		// else{
+			// echo '$topicsOfTeacher不为空。<br>';
+		// }
 		// foreach($topicsOfTeacher as $singleTopic) {
             // echo "<td>";
             // echo $singleTopic['name'];

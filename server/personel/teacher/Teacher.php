@@ -49,15 +49,17 @@ class Teacher extends Personel {
 	public function setTeacherTopic() {
 		$topicArr=array();
 		$TeacherTopIdArr=$this->getTeacherTopId();
-		echo "在Teacher的setTeacherTopic中：<br>";
+		// echo "在Teacher的setTeacherTopic中：<br>";
 		// echo '$TeacherTopIdArr：<br>';
 		// print_r($TeacherTopIdArr);
 		
 		//到这，$TeacherTopIdArr是正确的。
+		// echo '在Teacher的setTeacherTopic的foreach中：<br>';
 		foreach($TeacherTopIdArr as $topId){
 			$teacherSingleTopic= new Topic();
 			$teacherSingleTopic->setTopId($topId);
 			$teacherSingleTopic->getTopicInfoFromDb();
+			// echo '$teacherSingleTopic->getName()为：'.$teacherSingleTopic->getName().'<br>';
 			array_push($topicArr,$teacherSingleTopic);
 		}
 		$this->setTopicArr($topicArr);
@@ -66,7 +68,7 @@ class Teacher extends Personel {
 	//返回的$topIdArr是一个数组，是正确的。
     private function getTeacherTopId() {
 		//注意下面的函数的参数里面的keyName和keyValue部分不是topic表中的key和相应的value。
-		echo "在Teacher的getTeacherTopId中：<br>";
+		// echo "在Teacher的getTeacherTopId中：<br>";
         $topIdStmt=queryListCondition("topic", "top_id", "tea_id", $this->getTeaId());
 		$topIdArr=array();
 		foreach ($topIdStmt as $row){

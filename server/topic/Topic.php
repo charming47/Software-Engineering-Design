@@ -12,9 +12,11 @@ class Topic {
     // 下面这个类实现之后再取消注释。
     // private $applytop = new Applytop();
     public function getName() {
+		// echo 'Topic类里面的getName方法被调用了<br>';
+		// echo '$this->name为'.$this->name.'<br>';
         return $this->name;
     } 
-    public function setName($topId) {
+    public function setName($name) {
         $this->name = $name;
     } 
     public function getTopId() {
@@ -62,7 +64,10 @@ class Topic {
     public function getTopicInfoFromDb() {
         $topicInfoStmt = queryListCondition('topic', '*', 'top_id', $this->getTopId());
 		$topicInfoArr=$topicInfoStmt->fetch(PDO::FETCH_ASSOC);
+		//到此，$topicInfoArr['name']还是数据库中的值。
         $this->setName($topicInfoArr['name']);
+		// echo '在Topic的getTopicInfoFromDb方法里，$topicInfoArr[name]为：<br>'.$topicInfoArr['name'];
+		// echo '在Topic的getTopicInfoFromDb方法里，$topicInfoArr[name]为：<br>'.$this->getName();
         $this->setBackground($topicInfoArr['background']);
         $this->setRequirement($topicInfoArr['requirement']);
     } 
