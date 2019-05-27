@@ -1,17 +1,14 @@
 <?php
-/**
- */
 require("../Personel.php");
 require("../../db/DbFun.php");
 require("../../topic/Topic.php");
 class Teacher extends Personel {
     private $teaId;
+	
+	//用于存放教师拥有的选题的数组。
+    private $TopicArr;
 
-    private $Top = new array();
-
-    public function recordTop() {
-        array_push($Top);
-    } 
+    
 
     public function getTeaId() {
         return $this->teaId;
@@ -19,6 +16,14 @@ class Teacher extends Personel {
     public function setTeaId($teaId) {
         $this->teaId = $teaId;
     } 
+	public function setTopic() {
+        array_push($Top);
+    } 
+	
+	//该函数返回教师拥有的所有选题的选题号。
+	private function getTeacherTopId(){
+		return queryListCondition("topic","top_id","top_id",getTeaId());
+	}
     // TODO
     public function initSinglePersonel() {
     } 
