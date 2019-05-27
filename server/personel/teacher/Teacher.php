@@ -3,12 +3,9 @@ require("../Personel.php");
 require("../../db/DbFun.php");
 require("../../topic/Topic.php");
 class Teacher extends Personel {
-    private $teaId;
-	
-	//用于存放教师拥有的选题的数组。
+    private $teaId; 
+    // 用于存放教师拥有的选题的数组。
     private $TopicArr;
-
-    
 
     public function getTeaId() {
         return $this->teaId;
@@ -16,34 +13,41 @@ class Teacher extends Personel {
     public function setTeaId($teaId) {
         $this->teaId = $teaId;
     } 
-	public function setTopic() {
-        array_push($Top);
+    // ***************************************
+    //在$TopicArr数组中存放教师所拥有的选题。
+	//这个函数执行完了之后，$TopicArr数组中的选题的对象中只有选题的题号，其他属性还没有初始化。
+	public function setTeacherTopic() {
+		$TeacherTopIdArr=getTeacherTopId();
+		foreach($TeacherTopIdArr as $topId){
+			$singleTeacherTopic=new Topic();
+			$singleTeacherTopic->setTopId($topId);
+			array_push($TopicArr,$singleTeacherTopic);
+		}
     } 
-	
-	//该函数返回教师拥有的所有选题的选题号。
-	private function getTeacherTopId(){
-		return queryListCondition("topic","top_id","top_id",getTeaId());
-	}
+    // 该函数返回教师拥有的所有选题的选题号。
+    private function getTeacherTopId() {
+        return queryListCondition("topic", "top_id", "top_id", getTeaId());
+    } 
     // TODO
     public function initSinglePersonel() {
     } 
     public function updateSinglePersonel() {
     } //ENDTODO
-    public function releaseTop($name, $background, $requirement) {
+    public function releaseTopic($name, $background, $requirement) {
         $releaseTop->createTop(getTeaId(), $name, $background, $requirement);
     } 
-    public function updateBack() {
-        updateBackgrond();
+    public function updateBackgrond($topic) {
+        $topic->updateBackgrond();
     } 
-    public function updateRqire() {
-        updateRqirement();
+    public function updateReqirement($topic) {
+        $topic->updateRqirement();
     } 
-    public function deleteT() {
-        deleteTop();
+    public function deleteTopic($topic) {
+        $topic->deleteTopic();
     } 
-    // Top 是选题的对象 taskbookname 是存放的路径
-    public function writeTaskBook($taskBookName, $top) {
-        $taskBook = array('top_id' => $top->getTopId(), 'task_book_name' => $taskbookname);
+    // Top是选题的对象，taskBookUrl是存放的路径。
+    public function writeTaskBook($taskBookUrl, $top) {
+        $taskBook = array('top_id' => $top->getTopId(), 'task_book_name' => $taskBookUrl);
         insert("task_book", $taskBook);
     } 
     public function selectStudent($stuId, $topId) {
@@ -54,6 +58,7 @@ class Teacher extends Personel {
         return querySingle('topic_selection_report', 'stu_id', $stuId, 'topic_selection_report_name');
     } 
     // 这里guidingOpinionContent存放的也是路径吗？
+	// 不是的，存放的是内容。
     public function writeGuidingOpinion($stuId, $guidingOpinionContent) {
         $guidingOpinion = array('stu_id' => $stuId, 'guiding_opinion' => $guidingOpinionContent);
         insert("topic_selection_report", $guidingOpinion);

@@ -60,10 +60,10 @@
 		public function updateRequirement(){
 			update('top','requirement',getrequirement(),'top_id',getTopId());
 		}
-		public function deleteTop(){
+		public function deleteTopic(){
 			delete('top','top_id',getTopId());
 		}
-		public function queryTop(){
+		public function queryTopic(){
 			return querySingle('top','top_id',getTopId(),'*');
 		}
 		}
