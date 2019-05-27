@@ -79,7 +79,8 @@ class Teacher extends Personel {
         $taskBook = array('top_id' => $top->getTopId(), 'task_book_name' => $taskBookUrl);
         insert("task_book", $taskBook);
     } 
-    public function selectteacher($stuId, $topId) {
+    public function selectStudent($stuId, $topId) {
+        //update $tableName set $attrName='$updateValue' where $keyName=$keyValue
         $selectStu = array('stu_id' => $stuId, 'top_id' => $topId);
         insert("successful_apply", $selectStu);
     } 
@@ -88,17 +89,15 @@ class Teacher extends Personel {
     } 
 	// 不是的，存放的是内容。
 	//这里修改增加了一个name变量用来存放路径信息
-    public function writeGuidingOpinion($stuId, $url, $guidingOpinionContent) {
-        $guidingOpinion = array('stu_id' => $stuId, 'topic_selection_report_url'=>$url, 'guiding_opinion' => $guidingOpinionContent);
-        insert("topic_selection_report", $guidingOpinion);
+    public function writeGuidingOpinion($stuId, $guidingOpinionContent) {
+        update("topic_selection_report",'guiding_opinion',$guidingOpinionContent,'stu_id',$stuId);
     } 
-    public function writeAmendment($stuId,$url,$amendment) {
-        $amendments = array('stu_id' => $stuId, 'paper_url' => $url, 'amendment' => $amendment);
-        insert("editing_paper", $amendments);
+    public function writeAmendment($stuId,$amendment) {
+        //这里update应该是双主键的，所以应该在DbFun里面新加一个update
+        update("editing_paper","amendment",$amendment,"stuId",$stuId);
     } 
-    public function writeTutorOpinion($stuId,$modifyingOpinion) {
-        $tutorOpinion = array('stu_id' => $stuId, 'instructor_opinion_sheet_url' => $modifyingOpinion);
-        insert("teacher", $modifyingOpinion);
+    public function writeTutorOpinion($stuId,$url) {
+        update("final_paper",'stu_id',$stuId,'instructor_opinion_sheet_url',$url);
     } 
     public function selectAppraiser($Appraiser) {
         $chooseAppraiser = array('tea_id' => $Appraiser);
