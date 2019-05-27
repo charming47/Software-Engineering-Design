@@ -1,5 +1,5 @@
 <?php
-	class abstract Personel{
+	class Personel{
 		private $name='';
 		private $password='';
 		private $email='';
@@ -37,16 +37,16 @@
 			return $this->expertise;
 		}
 
-		public abstract function initSinglePersonel();
+		// public abstract function initSinglePersonel();
 		
-		//更新数据表中的人员的名字。
-		public abstract function updateName();//更新数据表中的人员的邮箱。
-		public abstract function updateEmail();
-		//更新数据表中的人员的电话号码。
-		public abstract function updatePhoneNumber();
-		//更新数据表中的人员的专长。
-		public abstract function updateExpertise();
-		//更新数据表中的人员的密码。
-		public abstract function updatePassword();
+		// //更新数据表中的人员的名字。
+		// public abstract function updateName();//更新数据表中的人员的邮箱。
+		// public abstract function updateEmail();
+		// //更新数据表中的人员的电话号码。
+		// public abstract function updatePhoneNumber();
+		// //更新数据表中的人员的专长。
+		// public abstract function updateExpertise();
+		// //更新数据表中的人员的密码。
+		// public abstract function updatePassword();
 	}
 	

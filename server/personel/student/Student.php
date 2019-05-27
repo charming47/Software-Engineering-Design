@@ -1,6 +1,6 @@
 <?php
-	require("../Personel.php");
-	require(../../db/DbFun.php);
+	require_once("../Personel.php");
+	require_once(../../db/DbFun.php);
 	class Student extends Personel{
 		private $stuId='';
 		

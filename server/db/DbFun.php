@@ -1,6 +1,5 @@
 <?php
-	require("DbConn.php");
-	//querySingle("teacher","tea_id",1,"password")
+	require_once("DbConn.php");
 
 	function querySingle($tableName,$keyName,$keyValue,$attr){
 		$sql="select $attr from $tableName where $keyName = '$keyValue';";

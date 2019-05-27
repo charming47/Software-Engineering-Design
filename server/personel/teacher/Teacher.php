@@ -1,7 +1,7 @@
 <?php
-require("../Personel.php");
-require("../../db/DbFun.php");
-require("../../topic/Topic.php");
+require_once("../Personel.php");
+require_once("../../db/DbFun.php");
+require_once("../../topic/Topic.php");
 class Teacher extends Personel {
     private $teaId; 
     // 用于存放教师拥有的选题的数组。
@@ -13,17 +13,22 @@ class Teacher extends Personel {
     public function setTeaId($teaId) {
         $this->teaId = $teaId;
     } 
+    public function getTopicArr() {
+        return $this->topicArr;
+    } 
+    public function setTopicArr($topicArr) {
+        $this->topicArr = $topicArr;
+    } 
     // ***************************************
-    //在$TopicArr数组中存放教师所拥有的选题。
-	//这个函数执行完了之后，$TopicArr数组中的选题的对象中只有选题的题号，其他属性还没有初始化。
-	public function setTeacherTopic() {
-		$TeacherTopIdArr=getTeacherTopId();
-		foreach($TeacherTopIdArr as $topId){
-			$teacherSingleTopic=new Topic();
-			$teacherSingleTopic->setTopId($topId);
-			$teacherSingleTopic->setTopId($topId);
-			array_push($TopicArr,$teacherSingleTopic);
-		}
+    // 在$TopicArr数组中存放教师所拥有的选题。
+    public function setTeacherTopic() {
+        $TeacherTopIdArr = getTeacherTopId();
+        foreach($TeacherTopIdArr as $topId) {
+            $teacherSingleTopic = new Topic();
+            $teacherSingleTopic->setTopId($topId);
+            $teacherSingleTopic->getTopicInfoFromDb();
+            array_push($TopicArr, $teacherSingleTopic);
+        } 
     } 
     // 该函数返回教师拥有的所有选题的选题号。
     private function getTeacherTopId() {
@@ -59,7 +64,7 @@ class Teacher extends Personel {
         return querySingle('topic_selection_report', 'stu_id', $stuId, 'topic_selection_report_name');
     } 
     // 这里guidingOpinionContent存放的也是路径吗？
-	// 不是的，存放的是内容。
+    // 不是的，存放的是内容。
     public function writeGuidingOpinion($stuId, $guidingOpinionContent) {
         $guidingOpinion = array('stu_id' => $stuId, 'guiding_opinion' => $guidingOpinionContent);
         insert("topic_selection_report", $guidingOpinion);
@@ -76,7 +81,7 @@ class Teacher extends Personel {
         $chooseAppraiser = array('tea_id' => $Appraiser);
         insert("appraiser", $chooseAppraiser);
     } 
-    public viewFinalPaper($stuId) {
+    public function viewFinalPaper($stuId) {
         return querySingle('final_paper', 'stu_id', $stuId, 'paper_name');
     } 
 } 

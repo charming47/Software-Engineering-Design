@@ -1,9 +1,12 @@
 <?php
 require_once('Teacher.php');
 class TeacherController{
-	function showTeacherTopic(){
+	function showTopicsOfTeacher(){
 		$singleTeacher=new Teacher();
 		$singleTeacher->setTeaId('1');
-		$singleTeacherTopic
+		$singleTeacher->setTeacherTopic();
+		$topicsOfTeacher=$singleTeacher->getTopicArr();
+		$singleTeacherView=new TeacherView();
+		$singleTeacherView->displayTopicsOfTeacher($topicsOfTeacher);
 	}
 }
