@@ -1,6 +1,6 @@
 <?php
-	require_once("../Personel.php");
-	require_once(../../db/DbFun.php);
+	require("../Personel.php");
+	require("../../db/DbFun.php");
 	class Student extends Personel{
 		private $stuId='';
 		
@@ -48,9 +48,6 @@
 			//showTopic还没有写好，等前端这个界面写好之后再把这行代码解注释。
 			//showTopic(queryListAll("topic","name");)
 		}
-		
-		
-		
 		//类图中没有的方法
 		public function viewProgressRate(){
 			querySingle("student","stu_id",getStuId(),"progress_rate");
