@@ -58,7 +58,6 @@ class Personel {
             array_push($topicArr, $teacherSingleTopic);
         } 
 		return $topicArr;
-        $this->setTopicArr($topicArr);
 	}
 	
 	// 该函数返回教师拥有的所有选题的选题号。
