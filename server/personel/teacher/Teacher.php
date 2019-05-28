@@ -48,27 +48,7 @@ class Teacher extends Personel {
     // 这个函数执行完了之后，$TopicArr数组中的选题的对象中只有选题的题号，其他属性还没有初始化。
     // 经过测试，这个函数是稳定的。
     public function setTeacherTopic() {
-        $topicArr = array();
-        $TeacherTopIdArr = $this->getTeacherTopId();
-        foreach($TeacherTopIdArr as $topId) {
-            $teacherSingleTopic = new Topic();
-            $teacherSingleTopic->setTopId($topId);
-            $teacherSingleTopic->getTopicInfoFromDb();
-            array_push($topicArr, $teacherSingleTopic);
-        } 
-        $this->setTopicArr($topicArr);
-    } 
-    // 该函数返回教师拥有的所有选题的选题号。
-    // 返回的$topIdArr是一个数组，是正确的。
-    // 经过测试，这个函数是稳定的。
-    private function getTeacherTopId() {
-        // 注意下面的函数的参数里面的keyName和keyValue部分不是topic表中的key和相应的value。
-        $topIdStmt = queryListCondition("topic", "top_id", "tea_id", $this->getTeaId());
-        $topIdArr = array();
-        foreach ($topIdStmt as $row) {
-            array_push($topIdArr, $row['top_id']);
-        } 
-        return $topIdArr;
+        $this->setTopicArr($this->setPersonelTopic('tea_id',$this->getTeaId()));
     } 
     // TODO
     public function updateSinglePersonel() {
