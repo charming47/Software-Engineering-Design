@@ -48,7 +48,7 @@ class Student extends Personel {
     public function updatePassword() {
         update("student", "stu_id", getStuId(), $this->getExpertise());
     } 
-    public function viewOverTopic() {
+    public function viewTopic() {
         // showTopic还没有写好，等前端这个界面写好之后再把这行代码解注释。
         // showTopic(queryListAll("topic","name");)
     } 
