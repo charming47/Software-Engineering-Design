@@ -12,11 +12,17 @@ class Student extends Personel {
     public function setStuId($stuId) {
         $this->stuId = $stuId;
     } 
-    // 获得该名学生选的所有题目的题目号。
-    public function getTopidAppled() {
-        return
+	public function getSelectTopic() {
+        return $this->selectTopic;
+    } 
+    public function setSelectTopic($selectTopic) {
+        $this->selectTopic = $selectTopic;
     } 
     // ******************************************
+    // 获得该名学生选的所有题目的题目号。
+    public function getTopidAppled() {
+        return 
+    } 
     // 学生的密码默认为学生的学号。
     public function initSinglePersonel() {
         $stuInfo = array("stu_id" => $this->getStuId(), "name" => $this->getName(), "password" => $this->getStuId());

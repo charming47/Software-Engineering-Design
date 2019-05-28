@@ -1,6 +1,6 @@
 <?php
 require_once("../../db/DbFun.php");
-//require_once("../Applytop.php");
+// require_once("../Applytop.php");
 class Topic {
     private $name;
 
@@ -12,8 +12,6 @@ class Topic {
     // 下面这个类实现之后再取消注释。
     // private $applytop = new Applytop();
     public function getName() {
-		// echo 'Topic类里面的getName方法被调用了<br>';
-		// echo '$this->name为'.$this->name.'<br>';
         return $this->name;
     } 
     public function setName($name) {
@@ -43,7 +41,6 @@ class Topic {
         insert('successfull_apply', $insertStuAndtop);
     } 
     public function defineApplyStudent($stuId, $applyReason) {
-        // $insertApplyStudent=array('' => , );
         // 调用createtopeApply方法实现
         $applytop->createtopApply(getTopId(), $stuId, $applyReason);
     } 
@@ -61,13 +58,11 @@ class Topic {
         delete('top', 'top_id', getTopId());
     } 
     // 把Topic对象中的变量赋值为数据库中的数据。
+    // 经过测试，这个方法是稳定的。
     public function getTopicInfoFromDb() {
         $topicInfoStmt = queryListCondition('topic', '*', 'top_id', $this->getTopId());
-		$topicInfoArr=$topicInfoStmt->fetch(PDO::FETCH_ASSOC);
-		//到此，$topicInfoArr['name']还是数据库中的值。
+        $topicInfoArr = $topicInfoStmt->fetch(PDO::FETCH_ASSOC);
         $this->setName($topicInfoArr['name']);
-		// echo '在Topic的getTopicInfoFromDb方法里，$topicInfoArr[name]为：<br>'.$topicInfoArr['name'];
-		// echo '在Topic的getTopicInfoFromDb方法里，$topicInfoArr[name]为：<br>'.$this->getName();
         $this->setBackground($topicInfoArr['background']);
         $this->setRequirement($topicInfoArr['requirement']);
     } 
