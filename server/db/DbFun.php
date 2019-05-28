@@ -41,11 +41,18 @@ function insert($tableName, $attrNameAndValue) {
     $sql = "insert into $tableName(" . $AttrArrStr . ") values (" . $insertValue . ");";
     $stmt = $conn->exec($sql);
 } 
-// 函数返回的是一个PDO statement对象。
 // 如果想取出里面的值，需要通过foreach遍历。
 function update($tableName, $attrName, $updateValue, $keyName, $keyValue) {
     global $conn;
     $sql = "update $tableName set $attrName='$updateValue' where $keyName=$keyValue";
+    $stmt = $conn->exec($sql);
+} 
+
+// SQL语句测试成功。
+// update editing_paper set pass='1' where stu_id=3 and version_id=1;
+function updateByDoubleKeys($tableName, $attrName, $updateValue, $keyName1, $keyValue1,$keyName1, $keyValue1) {
+    global $conn;
+    $sql = "update $tableName set $attrName='$updateValue' where $keyName1=$keyValue1 and $keyName2=$keyValue2;";
     $stmt = $conn->exec($sql);
 } 
 
