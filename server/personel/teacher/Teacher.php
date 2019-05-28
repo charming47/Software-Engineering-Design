@@ -5,7 +5,7 @@ require_once("../../topic/Topic.php");
 class Teacher extends Personel {
     private $teaId; 
     // 用于存放教师拥有的选题的数组。
-    private $TopicArr;
+    private $topicArr=array();
 
     public function getTeaId() {
         return $this->teaId;
@@ -47,17 +47,38 @@ class Teacher extends Personel {
     //在$TopicArr数组中存放教师所拥有的选题。
 	//这个函数执行完了之后，$TopicArr数组中的选题的对象中只有选题的题号，其他属性还没有初始化。
 	public function setTeacherTopic() {
-		$TeacherTopIdArr=getTeacherTopId();
+		$topicArr=array();
+		$TeacherTopIdArr=$this->getTeacherTopId();
+		// echo "在Teacher的setTeacherTopic中：<br>";
+		// echo '$TeacherTopIdArr：<br>';
+		// print_r($TeacherTopIdArr);
+		
+		//到这，$TeacherTopIdArr是正确的。
+		// echo '在Teacher的setTeacherTopic的foreach中：<br>';
 		foreach($TeacherTopIdArr as $topId){
 			$teacherSingleTopic= new Topic();
 			$teacherSingleTopic->setTopId($topId);
-			$teacherSingleTopic->setTopId($topId);
-			array_push($TopicArr,$teacherSingleTopic);
+			$teacherSingleTopic->getTopicInfoFromDb();
+			// echo '$teacherSingleTopic->getName()为：'.$teacherSingleTopic->getName().'<br>';
+			array_push($topicArr,$teacherSingleTopic);
 		}
+		$this->setTopicArr($topicArr);
     } 
     // 该函数返回教师拥有的所有选题的选题号。
+	//返回的$topIdArr是一个数组，是正确的。
     private function getTeacherTopId() {
-        return queryListCondition("topic", "top_id", "top_id", $this->getTeaId());
+		//注意下面的函数的参数里面的keyName和keyValue部分不是topic表中的key和相应的value。
+		// echo "在Teacher的getTeacherTopId中：<br>";
+        $topIdStmt=queryListCondition("topic", "top_id", "tea_id", $this->getTeaId());
+		$topIdArr=array();
+		foreach ($topIdStmt as $row){
+			array_push($topIdArr,$row['top_id']);
+		}
+		// echo '$topIdArr为：<br>';
+		// print_r($topIdArr);
+		// echo "<br>";
+		// echo "<br>";
+		return $topIdArr;
     } 
     // TODO
     public function updateSinglePersonel() {

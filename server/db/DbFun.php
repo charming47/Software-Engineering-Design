@@ -4,6 +4,8 @@ require_once('DbConn.php');
 // echo "在DbFun.php中。<br>";
 // echo "密码为：".$password."。<br>";
 // $str1="ssssssss";
+
+//方法返回的是一个数组。
 function querySingle($tableName, $keyName, $keyValue, $attr) {
 	global $conn;
     $sql = "select $attr from $tableName where $keyName = '$keyValue';";
@@ -25,6 +27,7 @@ function queryListAll($tableName, $attr) {
 function queryListCondition($tableName, $attr, $keyName, $keyValue) {
 	global $conn;
     $sql = "select $attr from $tableName where $keyName='$keyValue';"; 
+	// echo '$sql为：'.$sql.'<br>';
 	// echo '在DbFun.php的queryListCondition中，';
     // if($conn==null){
 		// echo '$conn为空。<br>';
@@ -35,7 +38,10 @@ function queryListCondition($tableName, $attr, $keyName, $keyValue) {
 	// echo '$str1为：'.$str1.'<br>';
 	// echo '$password为：'.$password.'<br>';
     $stmt = $conn->query($sql);
-    return $stmt->fetch(PDO::FETCH_ASSOC);
+	
+    // $topicArr=$stmt->fetch(PDO::FETCH_ASSOC);
+	// echo $topicArr['top_id'];
+	return $stmt;
 } 
 // 函数返回的是一个PDO statement对象。
 // 如果想取出里面的值，需要通过foreach遍历。
