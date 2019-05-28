@@ -5,7 +5,7 @@ require_once("../../topic/Topic.php");
 class Teacher extends Personel {
     private $teaId; 
     // 用于存放教师拥有的选题的数组。
-    private $topicArr = array();
+    private $topicArr;
 
     public function getTeaId() {
         return $this->teaId;

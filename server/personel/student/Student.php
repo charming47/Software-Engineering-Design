@@ -4,7 +4,7 @@ require_once("../../db/DbFun.php");
 class Student extends Personel {
     private $stuId = '';
 
-    private $selectTopic;
+    private $topicArr;
 	
     public function getStuId() {
         return $this->stuId;
@@ -12,11 +12,11 @@ class Student extends Personel {
     public function setStuId($stuId) {
         $this->stuId = $stuId;
     } 
-	public function getSelectTopic() {
-        return $this->selectTopic;
+	public function getTopicArr() {
+        return $this->topicArr;
     } 
-    public function setSelectTopic($selectTopic) {
-        $this->selectTopic = $selectTopic;
+    public function setTopicArr($topicArr) {
+        $this->topicArr = $topicArr;
     } 
     // ******************************************
     // 获得该名学生选的所有题目的题目号。
