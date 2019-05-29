@@ -1,5 +1,6 @@
 <?php
 require_once("../../db/DbFun.php");
+require_once("TaskBook.php");
 //require_once("../Applytop.php");
 class Topic {
     private $name;
@@ -9,6 +10,39 @@ class Topic {
     private $requirement;
 
     private $topId; 
+
+    private $taskBook;
+
+    private $topicSelectionReport;
+
+    private $midtermTestForm;
+
+    private $paper;
+
+    public function getTaskBook(){
+        return $this->taskBook;
+    }
+    public function setTaskBook($taskBook){
+        $this->taskBook = $taskBook;
+    }
+    public function getTopicSelectionReport(){
+        return $this->topicSelectionReport;
+    }
+    public function setTopicSelectionReport($topicSelectionReport){
+        $this->topicSelectionReport = $topicSelectionReport;
+    }
+    public function getMidtermTestForm(){
+        return $this->midtermTestForm;
+    }
+    public function setMidtermTestForm($midtermTestForm){
+        $this->midtermTestForm = $midtermTestForm;
+    }
+    public function getPaper(){
+        return $this->paper;
+    }
+    public function setPaper($paper){
+        $this->paper=$paper;
+    }
     // 下面这个类实现之后再取消注释。
     // private $applytop = new Applytop();
     public function getName() {
